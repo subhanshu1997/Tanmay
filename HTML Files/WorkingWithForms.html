@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>Email Registration Forms</title>
+</head>
+<script type="text/javascript">
+function validateForm(){
+console.log("Hello");
+	var txtUName=frmReg.txtUName.value;
+	var txtPwd=frmReg.txtPwd.value;
+	var txtConfPassword=frmReg.txtConfPassword.value;
+	var txtFN=frmReg.txtFN.value;
+	var txtLN=frmReg.txtLN.value;
+	var Email=frmReg.Email.value;
+	var Address=frmReg.Address.value;
+	var Phone=frmReg.Phone.value;
+	var flag=false;
+	if(txtUName==""||txtUName==null){
+		document.getElementById('userErrMsg1').innerHTML="* Please enter UserName.";
+		flag=false;
+		
+	}
+	else if(txtPwd==""||txtPwd==null){
+		document.getElementById('userErrMsg2').innerHTML="* Please enter Password.";
+		flag=false;
+		
+	}
+	else if(txtConfPassword!=txtPwd){
+		document.getElementById('userErrMsg3').innerHTML="* Password Donot Match.";
+		flag=false;
+		
+	}
+	else if(txtFN==""||txtFN==null){
+		document.getElementById('userErrMsg4').innerHTML="* Please enter FirstName.";
+		flag=false;
+		
+	}
+	else if(txtLN==""||txtLN==null){
+		document.getElementById('userErrMsg5').innerHTML="* Please enter LastName.";
+		flag=false;
+		
+	}
+	else if(Email==""||Email==null){
+		document.getElementById('userErrMsg6').innerHTML="* Please enter Email.";
+		flag=false;
+		
+	}
+	else if(Address==""||Address==null){
+		document.getElementById('userErrMsg7').innerHTML="* Please enter Address.";
+		flag=false;
+		
+	}
+	else if(Phone==""||Phone==null){
+		document.getElementById('userErrMsg8').innerHTML="* Please enter Phone Number.";
+		flag=false;
+		
+	}
+	else{
+		flag=true;
+	}
+	if(flag){
+		window.location.href = "success.html";
+	}
+}
+</script>
+<style type="text/css"> 
+#myStyle, input
+{
+border:2px solid #a1a1a1;
+padding:5px 5px; 
+background:#ffffff;
+
+border-radius:5px;
+-moz-border-radius:10px; /* Firefox 3.6 and earlier */
+}
+
+#Format
+{
+	font-family:Calibri;
+}
+
+#Format1
+{
+	font-family:Calibri;
+}
+</style>
+<body  style="background-size:100% 140%; font-family:Calibri;" width=70%  >
+<h1 align="center">Email Registration</H1>
+       <form  name="frmReg">
+
+
+           <table  align="center" style="font-family:Calibri; box-shadow:20px 20px 50px 20px green;" >
+            
+            
+            <tr>
+                <td align="right">User Name :</td>
+                <td><input type="text" id ="txtUserName" name="txtUName" /></td>
+                <td>
+				<div id="userErrMsg1" class="errMessage"></div>
+			</td>
+            </tr>
+
+ 			<tr>
+                <td align="right">Password :</td>
+                <td><input type="password" id ="txtPassword" name="txtPwd" /></td>
+                <td>
+				<div id="userErrMsg2" class="errMessage"></div>
+			</td>
+            </tr>
+            
+			<tr>
+                <td align="right">Confirm Password :</td>
+                <td><input class="Format" type="password" name="txtConfPassword" id ="txtConfPassword" onchange="javascript:comparePasswords()" /></td>
+                <td>
+				<div id="userErrMsg3" class="errMessage"></div>
+			</td>
+            </tr>
+			<tr>
+                <td align="right">First Name :</td>
+                <td><input type="text" class="Format1" id ="txtFirstName" name="txtFN" /></td>
+                <td>
+				<div id="userErrMsg4" class="errMessage"></div>
+			</td>
+            </tr>
+			<tr>
+                <td align="right">Last Name :</td>
+                <td><input type="text" id ="txtLastName" name="txtLN" /></td>
+                <td>
+				<div id="userErrMsg5" class="errMessage"></div>
+			</td>
+            </tr>
+			<tr>
+                <td align="right">Gender :</td>
+                <td><input type=radio id =rbMale name=gender value="Male">Male</input>
+				<input type=radio id =rbFemale name=gender value="Female">Female</input></td>
+            </tr>
+			
+			<tr>
+                <td align="right">Date of Birth :</td>
+                <td><input type="date" name="DtOB" id ="DOB" /></td>
+            </tr>
+				
+ 			<tr>
+                <td align="right">Email :</td>
+                <td><input type="email" name="Email" id ="txtEmail" /></td>
+                <td>
+				<div id="userErrMsg6" class="errMessage"></div>
+			</td>
+            </tr>
+
+ 			<tr>
+                <td align="right">Address :</td>
+                <td><input  type="textarea" name="Address" id="txtAddress" multiline="true" /></td>
+                <td>
+				<div id="userErrMsg7" class="errMessage"></div>
+			</td>
+            </tr>
+
+            <tr>
+	            <td align="right">City : </td>
+	            <td><select name="City" multiple>
+					  <option value="Mumbai">Mumbai</option>
+					  <option value="Pune">Pune</option>
+					  <option value="Bangalore">Bangalore</option>
+					  <option value="Chennai">Chennai</option>
+				</select></td>
+	        </tr>
+			<tr>
+                <td align="right">Phone :</td>
+                <td><input type="text" name="Phone" id ="txtPhone" /></td>
+                <td>
+				<div id="userErrMsg8" class="errMessage"></div>
+			</td>
+            </tr>
+                <td align="right">Hobbies :</td>
+				<td>
+					<input type="checkbox" name="chkHobbies" value="Music">Music</input>
+					<input type="checkbox" name="chkHobbies" value="Reading">Reading</input>
+					<input type="checkbox" name="chkHobbies" value="Movies">Movies</input>
+				</td>
+            </tr>
+			<tr>
+                <td colspan=2 align="center"><br><input type="button" name="submit" value="Submit" onclick="validateForm()"/>
+                <button id="myStyle" type="reset" name="reset" value="Reset">Reset</button></td>
+            </tr>
+           </table>
+
+       </form>
+    </body>
+</html>
